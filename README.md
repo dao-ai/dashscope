@@ -17,16 +17,16 @@ copy from https://github.com/replicate/replicate-javascript
 npm install dashscope
 ```
 
-## Usage
+## 用法
 
-Create the client:
+创建客户端：
 
 ```js
 import Dashscope from "dashscope";
 
 const dashscope = new Dashscope({
-  // get your token from https://dashscope.com/account
-  auth: "my api token", // defaults to process.env.REPLICATE_API_TOKEN
+  // 从获取您的token https://dashscope.console.aliyun.com/apiKey?spm=5176.28197632.0.0.75337e06fDpVDO
+  auth: "my api token", // 默认为 process.env.DASHSCOPE_API_TOKEN
 });
 ```
 
@@ -96,12 +96,12 @@ const output = await dashscope.run(model, { input });
 const dashscope = new Dashscope(options);
 ```
 
-| 名称                | 类型     | 描述                                                                   |
-| ------------------- | -------- | ---------------------------------------------------------------------- |
-| `options.auth`      | string   | **Required**. API 访问令牌                                             |
-| `options.userAgent` | string   | 应用程序的标识符. 默认为 `dashscope-javascript/${packageJSON.version}` |
-| `options.baseUrl`   | string   | 默认为 https://api.dashscope.com/v1                                    |
-| `options.fetch`     | function | 获取要使用的函数. 默认为 `globalThis.fetch`                            |
+| 名称                | 类型     | 描述                                                        |
+| ------------------- | -------- | ----------------------------------------------------------- |
+| `options.auth`      | string   | **Required**. API 访问令牌                                  |
+| `options.userAgent` | string   | 应用程序的标识符. 默认为 `dashscope/${packageJSON.version}` |
+| `options.baseUrl`   | string   | 默认为 https://api.dashscope.com/v1                         |
+| `options.fetch`     | function | 获取要使用的函数. 默认为 `globalThis.fetch`                 |
 
 客户端使用[fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)向 Dashscope 的 API 发出请求.
 默认情况下，使用`globalThis.fetch`函数，该函数在[Node.js 18](https://nodejs.org/en/blog/announcements/v18-release-announce#fetch-experimental)上可用和更高版本，以及[Cloudflare Workers](https://developers.cloudflare.com/workers/runtime-apis/fetch/)，[Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions)和其他环境。
