@@ -1,10 +1,10 @@
 {
   "name": "aliyun-dashscope",
-  "version": "0.21.0",
+  "version": "0.0.1",
   "description": "JavaScript client for aliyun dashscope",
-  "repository": "github:dao-ai/aliyun-dashscope",
-  "homepage": "https://github.com/dao-ai/aliyun-dashscope#readme",
-  "bugs": "https://github.com/dao-ai/aliyun-dashscope/issues",
+  "repository": "github:dao-ai/dashscope",
+  "homepage": "https://github.com/dao-ai/dashscope#readme",
+  "bugs": "https://github.com/dao-ai/dashscope/issues",
   "license": "Apache-2.0",
   "main": "index.js",
   "engines": {
@@ -19,7 +19,9 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.3",
+    "@types/node": "^20.8.10",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "cross-fetch": "^3.1.5",
     "eslint": "^8.36.0",

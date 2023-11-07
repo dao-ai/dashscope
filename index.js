@@ -186,7 +186,7 @@ class Dashscope {
 
     const headers = new Headers();
     if (auth) {
-      headers.append('Authorization', `Token ${auth}`);
+      headers.append('Authorization', `Bearer ${auth}`);
     }
     headers.append('Content-Type', 'application/json');
     headers.append('User-Agent', userAgent);
@@ -219,15 +219,15 @@ class Dashscope {
   }
 
   /**
-   * Paginate through a list of results.
+   * 浏览结果列表。
    *
    * @generator
    * @example
    * for await (const page of dashscope.paginate(dashscope.predictions.list) {
    *    console.log(page);
    * }
-   * @param {Function} endpoint - Function that returns a promise for the next page of results
-   * @yields {object[]} Each page of results
+   * @param {Function} endpoint - 函数，该函数返回对下一页结果的承诺
+   * @yields {object[]} 每页的结果
    */
   async *paginate(endpoint) {
     const response = await endpoint();
@@ -239,20 +239,19 @@ class Dashscope {
   }
 
   /**
-   * Wait for a prediction to finish.
+   * 等待预测完成。
    *
-   * If the prediction has already finished,
-   * this function returns immediately.
-   * Otherwise, it polls the API until the prediction finishes.
+   * 如果预测已经完成，此函数将立即返回。
+   * 否则，它轮询API直到预测结束。
    *
    * @async
-   * @param {object} prediction - Prediction object
-   * @param {object} options - Options
-   * @param {number} [options.interval] - Polling interval in milliseconds. Defaults to 500
-   * @param {Function} [stop] - Async callback function that is called after each polling attempt. Receives the prediction object as an argument. Return false to cancel polling.
-   * @throws {Error} If the prediction doesn't complete within the maximum number of attempts
-   * @throws {Error} If the prediction failed
-   * @returns {Promise<object>} Resolves with the completed prediction object
+   * @param {object} prediction - 预测对象
+   * @param {object} options - 选项
+   * @param {number} [options.interval] - 轮询间隔（以毫秒为单位）。默认值为500
+   * @param {Function} [stop] - 在每次轮询尝试后调用的异步回调函数。接收预测对象作为参数。返回false可取消轮询。
+   * @throws {Error} 如果预测未在最大尝试次数内完成
+   * @throws {Error} 如果预测失败
+   * @returns {Promise<object>} 使用已完成的预测对象进行解析
    */
   async wait(prediction, options, stop) {
     const { id } = prediction;
