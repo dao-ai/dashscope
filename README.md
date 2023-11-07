@@ -1,6 +1,8 @@
-# Dashscope Node.js client
+copy from https://github.com/replicate/replicate-javascript
 
-[Dashscope]的 Node.js 客户端(https://dashscope.com).
+# Dashscope Node.js 客户端
+
+[Dashscope](https://dashscope.com)的 Node.js 客户端.
 它允许您从 Node.js 代码中运行模型，以及使用[Dashscope](https://dashscope.com/docs/reference/http)的 HTTP API 所能做的一切.
 
 > **警告**
